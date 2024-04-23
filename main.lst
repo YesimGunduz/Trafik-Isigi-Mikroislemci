@@ -1,0 +1,158 @@
+CCS PCM C Compiler, Version 5.007, 61971               16-Kas-23 13:32
+
+               Filename:   C:\Users\yeþim\OneDrive\Desktop\3. Sýnýf Mikroiþlemciler\Trafik Iþýðý\main.lst
+
+               ROM used:   102 words (1%)
+                           Largest free fragment is 2048
+               RAM used:   6 (2%) at main() level
+                           7 (2%) worst case
+               Stack used: 0 locations
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   018
+0003:  NOP
+.................... #include <main.h> 
+.................... #include <16F877A.h> 
+.................... //////// Standard Header file for the PIC16F877A device //////////////// 
+.................... #device PIC16F877A 
+....................  
+.................... #list 
+....................  
+.................... #device ADC=16 
+....................  
+.................... #FUSES NOWDT                 	//No Watch Dog Timer 
+.................... #FUSES NOBROWNOUT            	//No brownout reset 
+.................... #FUSES NOLVP                 	//No low voltage prgming, B3(PIC16) or B5(PIC18) used for I/O 
+....................  
+.................... #use delay(crystal=20000000) 
+0004:  MOVLW  22
+0005:  MOVWF  04
+0006:  BCF    03.7
+0007:  MOVF   00,W
+0008:  BTFSC  03.2
+0009:  GOTO   017
+000A:  MOVLW  06
+000B:  MOVWF  78
+000C:  CLRF   77
+000D:  DECFSZ 77,F
+000E:  GOTO   00D
+000F:  DECFSZ 78,F
+0010:  GOTO   00C
+0011:  MOVLW  7B
+0012:  MOVWF  77
+0013:  DECFSZ 77,F
+0014:  GOTO   013
+0015:  DECFSZ 00,F
+0016:  GOTO   00A
+0017:  RETURN
+....................  
+....................  
+....................  
+.................... void main() 
+0018:  BSF    03.5
+0019:  BSF    1F.0
+001A:  BSF    1F.1
+001B:  BSF    1F.2
+001C:  BCF    1F.3
+001D:  MOVLW  07
+001E:  MOVWF  1C
+001F:  BCF    03.7
+0020:  MOVLW  1F
+0021:  ANDWF  03,F
+.................... { 
+....................  
+....................    while(TRUE) 
+....................    { 
+....................       output_high(pin_b0); 
+0022:  BCF    06.0
+0023:  BCF    03.5
+0024:  BSF    06.0
+....................       delay_ms(500); 
+0025:  MOVLW  02
+0026:  MOVWF  21
+0027:  MOVLW  FA
+0028:  MOVWF  22
+0029:  CALL   004
+002A:  DECFSZ 21,F
+002B:  GOTO   027
+....................        
+....................       output_low(pin_b0); 
+002C:  BSF    03.5
+002D:  BCF    06.0
+002E:  BCF    03.5
+002F:  BCF    06.0
+....................       delay_ms(600); 
+0030:  MOVLW  03
+0031:  MOVWF  21
+0032:  MOVLW  C8
+0033:  MOVWF  22
+0034:  CALL   004
+0035:  DECFSZ 21,F
+0036:  GOTO   032
+....................        
+....................       output_high(pin_b1); 
+0037:  BSF    03.5
+0038:  BCF    06.1
+0039:  BCF    03.5
+003A:  BSF    06.1
+....................       delay_ms(500); 
+003B:  MOVLW  02
+003C:  MOVWF  21
+003D:  MOVLW  FA
+003E:  MOVWF  22
+003F:  CALL   004
+0040:  DECFSZ 21,F
+0041:  GOTO   03D
+....................        
+....................       output_low(pin_b1); 
+0042:  BSF    03.5
+0043:  BCF    06.1
+0044:  BCF    03.5
+0045:  BCF    06.1
+....................       delay_ms(650); 
+0046:  MOVLW  05
+0047:  MOVWF  21
+0048:  MOVLW  82
+0049:  MOVWF  22
+004A:  CALL   004
+004B:  DECFSZ 21,F
+004C:  GOTO   048
+....................        
+....................       output_high(pin_b2); 
+004D:  BSF    03.5
+004E:  BCF    06.2
+004F:  BCF    03.5
+0050:  BSF    06.2
+....................       delay_ms(500); 
+0051:  MOVLW  02
+0052:  MOVWF  21
+0053:  MOVLW  FA
+0054:  MOVWF  22
+0055:  CALL   004
+0056:  DECFSZ 21,F
+0057:  GOTO   053
+....................        
+....................       output_low(pin_b2); 
+0058:  BSF    03.5
+0059:  BCF    06.2
+005A:  BCF    03.5
+005B:  BCF    06.2
+....................       delay_ms(650); 
+005C:  MOVLW  05
+005D:  MOVWF  21
+005E:  MOVLW  82
+005F:  MOVWF  22
+0060:  CALL   004
+0061:  DECFSZ 21,F
+0062:  GOTO   05E
+0063:  BSF    03.5
+0064:  GOTO   022
+....................    } 
+.................... } 
+0065:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F32   HS NOWDT PUT NOBROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT
